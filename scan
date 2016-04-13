@@ -1,0 +1,1 @@
+sudo clamscan --recursive=yes --infected / --move=/home/infected -l /home/v/scan.log

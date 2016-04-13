@@ -1,0 +1,1 @@
+xautolock -time 5 -locker "i3lock -d -i /home/v/Desktop/wallpaper.png -n"

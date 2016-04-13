@@ -1,0 +1,4 @@
+encrypt_key=E51DB34F
+sign_key=C1D70EDF
+
+duplicity --progress --progress-rate --no-encryption --exclude /home/v/steam --exclude /home/v/.local --exclude /home/v/vmware /home/v/ scp://v@192.168.254.23//ftp/v@v 

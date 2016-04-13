@@ -1,0 +1,1 @@
+autossh -M 0 -o "ServerAliveInterval 45" -o "ServerAliveCountMax 2" v@veil.us.to -p 587 -X

@@ -1,0 +1,65 @@
+#! /bin/bash
+
+sudo wget -q -O /etc/pacman.d/mirrorlist.backup https://www.archlinux.org/mirrorlist/all/ && 
+sudo cp /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist && 
+sudo reflector -l 100 -p http --sort rate --save /etc/pacman.d/mirrorlist;
+
+
+#This part updates my custom kernel. It isn't fully automated yet, requiring user input to complete the installation.
+
+curl -s https://aur.archlinux.org/packages/li/linux-ck/PKGBUILD | grep pkgver= > .pkgver
+curl -s https://aur.archlinux.org/packages/li/linux-ck/PKGBUILD | grep pkgrel= > .pkgrel
+
+#This was a real pain in the ass to figure out. Its probably still rough, but don't fix what ain't broke, right?
+
+if [ `uname -r | cut -d'-' -f3` != 'ck' ]; then
+	echo "This is not a '-ck' kernel. Skipping check."
+elif [ `cower -s linux-ck | grep "aur/linux-ck " | gawk '{print $2}' | sed 's/$/-ck/'` == `uname -r` ]; then
+	echo "No update needed."
+else
+	echo "Update needed"
+	if [ -d './.linux-ck' ]; then
+		rm -r ./.linux-ck
+	fi
+	sudo rm -r ./.linux-ck
+	mkdir ./.linux-ck
+	cd ./.linux-ck
+	cower -dd linux-ck --ignorerepo=repo-ck
+	cd linux-ck
+	sed -i '/^_use_current=/ s/$/y/' PKGBUILD
+	sed -i '/^_BFQ_enable_=/ s/$/y/' PKGBUILD
+	sed -i '/^_localmodcfg=/ s/$/y/' PKGBUILD
+	vim PKGBUILD
+	makepkg -si
+#	sudo pacman -U linux-ck-$(cat ~/.pkgver | sed -r 's/^.{7}//')*;
+#	sudo pacman -U linux-ck-headers*
+#	sudo mkinitcpio -p linux-ck;
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
+	cd ..
+	cd ..
+#	sudo rm -r ./.linux-ck
+fi
+
+rm .pkgver
+rm .pkgrel
+
+sudo pacman -Rnc $(pacman -Qttdq)
+
+sudo pacman -Syyu; #Updates system.
+
+#sudo pacman -Rcs $(pacman -Qttdq)
+
+sudo pacman-optimize; #Optimizes pacman cache.
+
+sudo chkrootkit > .templog
+
+vim .templog
+
+rm .templog
+
+echo "Scanning system, please wait."
+sudo python /home/$USER/scripts/update
+
+yaourt -Sua
+
+#sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.

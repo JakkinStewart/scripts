@@ -1,0 +1,9 @@
+cd ~
+mkdir .linux/
+cd ./.linux/
+ABSROOT=. sudo abs core/linux
+sudo echo '
+CONFIG_SECURITY_TOMOYO=y
+' >> config.x86_64
+updpkgsums
+makepkg -si

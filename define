@@ -1,0 +1,2 @@
+read var
+lynx -dump "https://www.google.com/search?q=define+$var" | sed -n '53' | sed 's/[25].*//'

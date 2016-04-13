@@ -1,0 +1,9 @@
+while true
+
+do
+
+    /usr/bin/q4wine-cli -p "Guild Wars 2"  -i "Gw2"
+
+    sleep 20
+
+done

@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+echo $1
+echo $2
+#ffmpeg -f rawvideo -pix_fmt monob -s 80x60 -r 60 -i 1446127630344.jpg -vf "scale=iw*8:-1" -sws_flags neighbor -c:v huffyuv step1.mkv
+#ffmpeg -i step1.mkv -c:v libvpx -b:v 256k -deadline best -threads 8 step2.webm
+#ffmpeg -i step2.webm -vf "format=pix_fmts=monob,scale=iw/8:-1" -sws_flags area -f rawvideo step3.jpg

@@ -1,0 +1,17 @@
+#! /usr/bin/env python3
+# Written by Joshua Jordi
+
+import os
+
+infile = open("input.txt", "r")
+
+compare = infile.readline()
+
+
+var = os.system("curl -s -I https://www.mnsu.edu/reslife/housing/current/winter/winter_break_staying.html | gawk 'NR==4'")
+print()
+print(var)
+#if compare == var:
+#    print("Not updated.")
+#else:
+#    print("Updated.")
