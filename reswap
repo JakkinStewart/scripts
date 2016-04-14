@@ -1,2 +1,2 @@
 sudo swapoff -a;
-sudo systemctl restart zramswap
+sudo swapon -a
