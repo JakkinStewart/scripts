@@ -45,7 +45,7 @@ rm .pkgrel
 
 sudo pacman -Rnc $(pacman -Qttdq)
 
-sudo pacman -Syyu; #Updates system.
+#sudo pacman -Syyu; #Updates system.
 
 #sudo pacman -Rcs $(pacman -Qttdq)
 
@@ -60,6 +60,6 @@ rm .templog
 echo "Scanning system, please wait."
 sudo python /home/$USER/scripts/update
 
-yaourt -Sua
+yaourt -Syyua
 
 #sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.
