@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/v/Git/cpuminer-yescrypt/
+./minerd -a yescrypt -o stratum+tcp://us-east1.globalboosty.miningpoolhub.com:20543 -u jakkin.jakkin2

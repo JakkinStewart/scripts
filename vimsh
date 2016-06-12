@@ -1,0 +1,11 @@
+#! /bin/bash
+if [ -s $1 ] ; then
+    vim $1
+	chmod +x $1
+else
+    echo "#! /usr/bin/bash" > $1
+	#echo "# vim: set ts=4"
+    echo "" >> $1
+    vim $1
+	chmod +x $1
+fi

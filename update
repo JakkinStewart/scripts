@@ -1,0 +1,15 @@
+#! /usr/bin/env python3
+# Written by Joshua Jordi
+
+import os
+
+def update():
+    var = input("Do you want to update rkhunter: ")
+    if var.upper() == "Y":
+        os.system("rkhunter --propupd")
+    elif var.upper() == "N":
+        quit()
+    else:
+        return update()
+
+update()
