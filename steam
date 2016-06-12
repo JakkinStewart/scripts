@@ -1,2 +1,0 @@
-#! /bin/bash
-WINEARCH=win32 wine ~/.wine/drive_c/Program\ Files/Steam/Steam.exe
