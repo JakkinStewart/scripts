@@ -69,5 +69,5 @@ yaourt -Syyua
 sudo pacman -Rnc $(pacman -Qttdq)
 
 sudo pacman-optimize
-
+#
 #sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.
