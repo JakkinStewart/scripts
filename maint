@@ -49,9 +49,11 @@ rm .pkgrel
 
 #sudo pacman -Rcs $(pacman -Qttdq)
 
-sudo pacman-optimize; #Optimizes pacman cache.
+#sudo pacman-optimize; #Optimizes pacman cache.
 
 sudo chkrootkit > .templog
+
+sudo rkhunter -c -sk
 
 vim .templog
 
@@ -60,8 +62,12 @@ rm .templog
 echo "Scanning system, please wait."
 sudo python /home/$USER/scripts/update
 
+sudo pacman -Syy
+
 yaourt -Syyua
 
 sudo pacman -Rnc $(pacman -Qttdq)
+
+sudo pacman-optimize
 
 #sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.
