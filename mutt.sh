@@ -1,3 +1,4 @@
+#!/bin/bash
 case "$(pidof mutt | wc -w)" in
 
 0)	mutt

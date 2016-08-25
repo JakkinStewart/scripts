@@ -3,5 +3,5 @@
 #./minerd -a yescrypt -o stratum+tcp://hub.miningpoolhub.com:20543 -u jakkin.jakkin2
 #cd /home/v/Git/darkcoin-cpuminer-1.2c/
 #./minerd -a X11 -o stratum+tcp://hub.miningpoolhub.com:20465 -u jakkin.jakkin2
-cd /home/v/Git/cpuminer-yescrypt/
+cd /home/v/Git/cpuminer-yescrypt/ || echo "Failed to enter directory" && exit
 ./minerd -a yescrypt -o stratum+tcp://hub.miningpoolhub.com:20543 -u jakkin.jakkin1

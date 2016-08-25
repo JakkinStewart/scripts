@@ -1,28 +1,28 @@
 #! /bin/bash
 
 echo "How much was your check?"
-read input
+read -r input
 
-bc <<< $input-10 > .income
+bc <<< "$input-10" > "$HOME/.income"
 
-income=`cat .income`
+income="$(cat '$HOME/.income')"
 
-bc <<< $input*0.1 > .tithe
-bc <<< $income*0.09 > .retire
+bc <<< "$input*0.1" > "$HOME/.tithe"
+bc <<< "$income*0.09" > "$HOME/.retire"
 bc <<< "`cat .income`-(`cat .tithe`+`cat .retire`)" > .savings
 
-tithe=`cat .tithe`
+tithe="$(cat $HOME/.tithe)"
 
-retire=`cat .retire`
+retire=`cat $HOME/.retire`
 
-savings=`cat .savings`
+savings=`cat $HOME/.savings`
 
 echo "Your income is $income" 
 echo "Your tithe is $tithe"
 echo "Your retirement is $retire"
 echo "Your savings is $savings"
 
-rm .income
-rm .tithe
-rm .retire
-rm .savings
+rm $HOME/.income
+rm $HOME/.tithe
+rm $HOME/.retire
+rm $HOME/.savings
