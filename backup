@@ -1,9 +1,9 @@
 #!/bin/sh
-REPOSITORY=ssh://nopriv@192.168.1.138:45/home/nopriv/Storage/Backup/V/vSager.borg
+REPOSITORY=ssh://nopriv@veil.my.to:45/home/nopriv/Storage/Backup/V/vSager.borg
 # Backup all of /home and /var/www except a few
 # excluded directories
 borg create -C lzma,9 -v --stats --chunker-params 19,23,21,4095       \
-    $REPOSITORY::v-`date +%Y-%m-%d`     \
+    $REPOSITORY::v-"$(date +%Y-%m-%d)"  \
     /home/v 		                    \
     --exclude /home/v/steam        		\
     --exclude /home/v/.local    		\
@@ -21,7 +21,8 @@ borg create -C lzma,9 -v --stats --chunker-params 19,23,21,4095       \
     --exclude /home/v/.thumbnails/ 		\
     --exclude /home/v/.vnc/ 			\
     --exclude /home/v/.wicd/ 			\
-    --exclude /home/v/.zcompcache
+    --exclude /home/v/.zcompcache		\
+	--exclude /home/v/ownCloud
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly
 # and 6 monthly archives.

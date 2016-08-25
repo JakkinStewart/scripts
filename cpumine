@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /home/v/Git/cpuminer-yescrypt/
-./minerd -a yescrypt -o stratum+tcp://hub.miningpoolhub.com:20543 -u jakkin.jakkin2
+#cd /home/v/Git/cpuminer-yescrypt/
+#./minerd -a yescrypt -o stratum+tcp://hub.miningpoolhub.com:20543 -u jakkin.jakkin2
 #cd /home/v/Git/darkcoin-cpuminer-1.2c/
 #./minerd -a X11 -o stratum+tcp://hub.miningpoolhub.com:20465 -u jakkin.jakkin2
+cd /home/v/Git/cpuminer-yescrypt/
+./minerd -a yescrypt -o stratum+tcp://hub.miningpoolhub.com:20543 -u jakkin.jakkin1

@@ -12,20 +12,20 @@ curl -s https://aur.archlinux.org/packages/li/linux-ck/PKGBUILD | grep pkgrel= >
 
 #This was a real pain in the ass to figure out. Its probably still rough, but don't fix what ain't broke, right?
 
-if [ `uname -r | cut -d'-' -f3` != 'ck' ]; then
+if [ "$(uname -r | cut -d'-' -f3)" != 'ck' ]; then
 	echo "This is not a '-ck' kernel. Skipping check."
-elif [ `cower -s linux-ck | grep "aur/linux-ck " | gawk '{print $2}' | sed 's/$/-ck/'` == `uname -r` ]; then
+elif [ "$(cower -s linux-ck | grep "aur/linux-ck " | gawk '{print $2}' | sed 's/$/-ck/')" == "$(uname -r)" ]; then
 	echo "No update needed."
 else
 	echo "Update needed"
-	if [ -d './.linux-ck' ]; then
-		rm -r ./.linux-ck
+	if [ -d "$HOME/.linux-ck" ]; then
+		sudo rm -r "$HOME/.linux-ck"
 	fi
-	sudo rm -r ./.linux-ck
-	mkdir ./.linux-ck
-	cd ./.linux-ck
+	#sudo rm -r "$HOME/.linux-ck"
+	mkdir "$HOME/.linux-ck"
+	cd "$HOME/.linux-ck" #|| echo "Failed to enter dir" & exit
 	cower -dd linux-ck --ignorerepo=repo-ck
-	cd linux-ck
+	cd linux-ck #|| echo "Failed to enter dir" & exit
 	sed -i '/^_use_current=/ s/$/y/' PKGBUILD
 	sed -i '/^_BFQ_enable_=/ s/$/y/' PKGBUILD
 	sed -i '/^_localmodcfg=/ s/$/y/' PKGBUILD
@@ -33,10 +33,10 @@ else
 	makepkg -si
 #	sudo pacman -U linux-ck-$(cat ~/.pkgver | sed -r 's/^.{7}//')*;
 #	sudo pacman -U linux-ck-headers*
-#	sudo mkinitcpio -p linux-ck;
+	sudo mkinitcpio -p linux-ck;
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
-	cd ..
-	cd ..
+	cd .. || echo "Failed to enter dir" & exit
+	cd .. || echo "Failed to enter dir" & exit
 #	sudo rm -r ./.linux-ck
 fi
 
@@ -60,14 +60,16 @@ vim .templog
 rm .templog
 
 echo "Scanning system, please wait."
-sudo python /home/$USER/scripts/update
+sudo python /home/"$USER"/scripts/update
 
 sudo pacman -Syy
 
 yaourt -Syyua
 
-sudo pacman -Rnc $(pacman -Qttdq)
+sudo pacman -Rnc "$(pacman -Qttdq)"
 
 sudo pacman-optimize
+
+sudo rkhunter -c -sk
 #
 #sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.

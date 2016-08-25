@@ -3,7 +3,7 @@ if [ -s $1 ] ; then
     vim $1
     cp $1 /home/v/ownCloud/Local/IT214
 	clear
-	javac $1
+	javac $1; mpg123 -q /home/v/Downloads/beep.mp3
 else
     echo "// Written by Joshua Jordi" > $1
 	echo "import java.util.*;" >> $1
@@ -21,5 +21,5 @@ else
 	vim $1
     cp $1 /home/v/ownCloud/Local/IT214
 	clear
-	javac $1
+	javac $1; mpg123 -q /home/v/Downloads/beep.mp3
 fi
