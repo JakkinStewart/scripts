@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ -s $1 ] ; then
     vim $1
-    cp $1 /home/v/ownCloud/Local/IT214
+    cp $1 $HOME/ownCloud/Local/IT214
 	clear
-	javac $1; mpg123 -q /home/v/Downloads/beep.mp3
+	javac $1; mpg123 -q $HOME/Downloads/beep.mp3
 else
     echo "// Written by Joshua Jordi" > $1
 	echo "import java.util.*;" >> $1
@@ -19,7 +19,7 @@ else
 	echo "  }" >> $1
 	echo "}" >> $1
 	vim $1
-    cp $1 /home/v/ownCloud/Local/IT214
+    cp $1 $HOME/ownCloud/Local/IT214
 	clear
-	javac $1; mpg123 -q /home/v/Downloads/beep.mp3
+	javac $1; mpg123 -q $HOME/Downloads/beep.mp3
 fi
