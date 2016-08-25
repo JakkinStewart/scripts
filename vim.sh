@@ -1,6 +1,6 @@
 var=`echo $1 | tr "." " " | gawk '{print $2}'`
 
-scripts='/home/v/scripts'
+scripts='$HOME/scripts'
 
 if [[ $var == 'java' ]]; then
 
