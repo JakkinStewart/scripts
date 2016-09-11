@@ -2,7 +2,7 @@
 
 sudo wget -q -O /etc/pacman.d/mirrorlist.backup https://www.archlinux.org/mirrorlist/all/ && 
 sudo cp /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist && 
-sudo reflector -l 100 -p http --sort rate --save /etc/pacman.d/mirrorlist;
+sudo reflector -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist;
 
 
 #This part updates my custom kernel. It isn't fully automated yet, requiring user input to complete the installation.
@@ -28,15 +28,15 @@ else
 	cd linux-ck #|| echo "Failed to enter dir" & exit
 	sed -i '/^_use_current=/ s/$/y/' PKGBUILD
 	sed -i '/^_BFQ_enable_=/ s/$/y/' PKGBUILD
-	sed -i '/^_localmodcfg=/ s/$/y/' PKGBUILD
+	#sed -i '/^_localmodcfg=/ s/$/y/' PKGBUILD
 	vim PKGBUILD
 	makepkg -si
 #	sudo pacman -U linux-ck-$(cat ~/.pkgver | sed -r 's/^.{7}//')*;
 #	sudo pacman -U linux-ck-headers*
 	sudo mkinitcpio -p linux-ck;
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
-	cd .. || echo "Failed to enter dir" & exit
-	cd .. || echo "Failed to enter dir" & exit
+	cd .. 
+	cd ..
 #	sudo rm -r ./.linux-ck
 fi
 
@@ -62,7 +62,7 @@ rm .templog
 echo "Scanning system, please wait."
 sudo python /home/"$USER"/scripts/update
 
-sudo pacman -Syy
+#sudo pacman -Syy
 
 yaourt -Syyua
 
