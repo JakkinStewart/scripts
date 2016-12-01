@@ -5,17 +5,34 @@ if [ -s $1 ] ; then
 	clear
 	javac $1; mpg123 -q $HOME/Downloads/beep.mp3
 else
-    echo "// Written by Joshua Jordi" > $1
+	echo "// Written by Joshua Jordi" >> $1
 	echo "import java.util.*;" >> $1
 	echo "import java.io.*;" >> $1
-    echo "" >> $1
-    echo "public class ${1:0:${#1}-5}" >> $1
-    echo "{" >> $1
-    echo "  public static void main(String[] args)" >> $1
-    echo "  {" >> $1
-    echo "    " >> $1
-    echo "    " >> $1
-    echo "    " >> $1
+	echo "" >> $1
+	echo "public class ${1:0:${#1}-5}" >> $1
+	echo "{" >> $1
+	echo "  public static void print(Object printme) {" >> $1
+	echo "    System.out.println(printme);" >> $1
+	echo "  }" >> $1
+	echo "" >> $1
+	echo "  public static void print(String printme, Object... alsoMe) {" >> $1
+	echo "    System.out.printf(printme, alsoMe);" >> $1
+	echo "    System.out.println();" >> $1
+	echo "  }" >> $1
+	echo "" >> $1
+	echo "  public static void print() {" >> $1
+	echo "    System.out.println();" >> $1
+	echo "  }" >> $1
+	echo "" >> $1
+	echo "  public static void printSL(Object printme) {" >> $1
+	echo "    System.out.print(printme);" >> $1
+	echo "  }" >> $1
+	echo "" >> $1
+	echo "  public static void main(String[] args)" >> $1
+	echo "  {" >> $1
+	echo "    " >> $1
+	echo "    " >> $1
+	echo "    " >> $1
 	echo "  }" >> $1
 	echo "}" >> $1
 	vim $1
@@ -23,3 +40,5 @@ else
 	clear
 	javac $1; mpg123 -q $HOME/Downloads/beep.mp3
 fi
+
+
