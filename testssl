@@ -1,0 +1,1 @@
+~/Git/testssl.sh/testssl.sh -e -E -S -P -c -H -U -f -p -y -Y --sneaky $@

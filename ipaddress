@@ -1,2 +1,1 @@
-#!/bin/bash
 ip -o -4 addr show | gawk '{ print $2, "\t", $4 }' | cut -d / -f 1
