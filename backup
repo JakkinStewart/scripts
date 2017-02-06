@@ -6,7 +6,7 @@ borg create --stats -C lzma        			\
     $REPOSITORY::v-`date +%Y-%m-%d_%H:%M`  	\
     /home/v/	                    	    \
 	--exclude /home/v/steam        			\
-	--exclude /home/v/owncloud				\
+	--exclude /home/v/ownCloud				\
 	--exclude /home/v/Downloads/ownCloud 	\
 	--exclude '/home/v/VirtualBox VMs' 		\
     --exclude /home/v/.local    			\
