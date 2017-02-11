@@ -16,7 +16,7 @@ borg create --stats -C lzma        			\
     --exclude /home/v/.bitcoin/ 			\
     --exclude /home/v/.bundle/ 				\
 	--exclude /home/v/.cache/ 				\
-	--exclude /home/v/.config/ 				\
+	#--exclude /home/v/.config/ 				\
 	--exclude /home/v/.znc					\
 	--exclude /home/v/.zcompcache			\
 	--exclude /home/v/.x2goclient			\
@@ -51,8 +51,9 @@ borg create --stats -C lzma        			\
     --exclude /home/v/.thumbnails/ 			\
     --exclude /home/v/.vnc/ 				\
     --exclude /home/v/.wicd/ 				\
-    --exclude /home/v/.zcompcache
+    --exclude /home/v/.zcompcache			\
+	--exclude /home/v/Downloads/StarWars
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly
 # and 6 monthly archives.
-borg prune -v $REPOSITORY --keep-within=1y --keep-hourly=48 --keep-daily=7 --keep-weekly=4 --keep-monthly=2 -s
+borg prune -v $REPOSITORY --keep-within=1y --keep-hourly=336 --keep-daily=7 --keep-weekly=4 --keep-monthly=2 -s
