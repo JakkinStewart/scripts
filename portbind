@@ -1,0 +1,6 @@
+for pid in $(ps aux | grep ssh | grep -v grep | awk '{ print $2 }'); do kill -9 $pid; done 
+echo "VEIL.US.TO"
+ssh veil.us.to -f -N -L 5912:localhost:5901
+echo ""
+echo "VEIL.MY.TO"
+ssh server@veil.my.to -f -N -L 5901:localhost:5901

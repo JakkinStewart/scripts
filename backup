@@ -33,11 +33,14 @@ borg create --stats -C lzma	            		\
 	--exclude /home/v/Music						\
 	--exclude /home/v/Downloads/youtube 		\
 	--exclude /home/v/Downloads/metasploitable3 \
+	--exclude /home/v/Downloads/justseedit 		\
 	--exclude '/home/v/My Web Sites'			\
 	--exclude /home/v/Downloads/DwarfFortress	\
 	--exclude /home/v/Videos					\
 	--exclude /home/v/Mail						\
-	--exclude /home/v/Git
+	--exclude /home/v/Git 						\
+	--exclude /home/v/Downloads/Movies 			\
+	--exclude /home/v/Downloads/VMs
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly
 # and 6 monthly archives.
