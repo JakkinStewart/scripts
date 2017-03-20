@@ -8,5 +8,5 @@ else
     echo "" >> $1
     echo "" >> $1
     vim $1
-    cp $1 /home/v/ownCloud
+    cp $1 /home/v/ownCloud/Programs
 fi

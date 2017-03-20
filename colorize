@@ -1,0 +1,6 @@
+full=Full
+charging=Charging
+discharging=Discharging
+if [ $1 = $full || $1 = $charging ]; then echo "\${color green}"$up
+else echo "\${color red}"$Discharging
+fi 

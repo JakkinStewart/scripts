@@ -1,4 +1,5 @@
 #! /bin/bash
+#sudo aide -C
 
 sudo wget -q -O /etc/pacman.d/mirrorlist.backup https://www.archlinux.org/mirrorlist/all/ && 
 sudo cp /etc/pacman.d/mirrorlist.backup /etc/pacman.d/mirrorlist && 
@@ -60,8 +61,14 @@ rm .templog
 echo "Scanning system, please wait."
 sudo python /home/$USER/scripts/update
 
-yaourt -Syyua
+sudo pacman -Syyu
+
+#yaourt -Sua
+meat -u
 
 sudo pacman -Rnc $(pacman -Qttdq)
 
+sudo chkboot -u
+
+#sudo aide -u
 #sudo defragfs / -a #Defragments filesystem. Requires defragfs installed.

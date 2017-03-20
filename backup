@@ -2,57 +2,42 @@
 REPOSITORY=ssh://nopriv@veil.my.to:45/home/nopriv/Downloads/Backup/V/v.borg
 # Backup all of /home and /var/www except a few
 # excluded directories
-borg create --stats -C lzma        			\
-    $REPOSITORY::v-`date +%Y-%m-%d_%H:%M`  	\
-    /home/v/	                    	    \
-	--exclude /home/v/steam        			\
-	--exclude /home/v/ownCloud				\
-	--exclude /home/v/Downloads/ownCloud 	\
-	--exclude '/home/v/VirtualBox VMs' 		\
-    --exclude /home/v/.local    			\
-    --exclude /home/v/vmware				\
-    --exclude /home/v/.armory/ 				\
-    --exclude /home/v/.attic/ 				\
-    --exclude /home/v/.bitcoin/ 			\
-    --exclude /home/v/.bundle/ 				\
-	--exclude /home/v/.cache/ 				\
-	#--exclude /home/v/.config/ 				\
-	--exclude /home/v/.znc					\
-	--exclude /home/v/.zcompcache			\
-	--exclude /home/v/.x2goclient			\
-	--exclude /home/v/.apvlvinfo			\
-	--exclude /home/v/.bundle				\
-	--exclude /home/v/.code-oss-build		\
-	--exclude /home/v/.notmuttrc			\
-	--exclude /home/v/.gnomerc				\
-	--exclude /home/v/.mtab.fuseiso			\
-	--exclude /home/v/.node					\
-	--exclude /home/v/.renpy				\
-	--exclude /home/v/.angband				\
-	--exclude /home/v/.v8flags.5.0.71.52.v.json \
-	--exclude /home/v/.fluxbox				\
-	--exclude /home/v/.drjava				\
-	--exclude /home/v/.ipython				\
-	--exclude /home/v/.grip					\
-	--exclude /home/v/.warzone2100-3.1		\
-	--exclude /home/v/.gradle				\
-	--exclude /home/v/.pylint.d				\
-	--exclude /home/v/.gtk-bookmarks		\
-	--exclude /home/v/.npm					\
-	--exclude /home/v/.pulse-cookie			\
-	--exclude /home/v/.vmware				\
-	--exclude /home/v/.maltego				\
-    --exclude /home/v/.ccache/ 				\
-    --exclude /home/v/.gem/ 				\
-    --exclude /home/v/.local/ 				\
-    --exclude /home/v/.mozilla/ 			\
-    --exclude /home/v/.pki/ 				\
-    --exclude /home/v/.sgminer/ 			\
-    --exclude /home/v/.thumbnails/ 			\
-    --exclude /home/v/.vnc/ 				\
-    --exclude /home/v/.wicd/ 				\
-    --exclude /home/v/.zcompcache			\
-	--exclude /home/v/Downloads/StarWars
+borg create --stats -C lzma	            		\
+    $REPOSITORY::v-`date +%Y-%m-%d_%H:%M`  		\
+    /home/v/	                    	    	\
+	--exclude /home/v/steam       				\
+	--exclude /home/v/ownCloud					\
+	--exclude /home/v/Downloads/ownCloud 		\
+	--exclude '/home/v/VirtualBox VMs' 			\
+    --exclude /home/v/.local	   				\
+    --exclude /home/v/vmware					\
+    --exclude /home/v/.armory 					\
+    --exclude /home/v/.attic 					\
+    --exclude /home/v/.bitcoin	 				\
+    --exclude /home/v/.bundle 					\
+    --exclude /home/v/.ccache 					\
+	--exclude /home/v/.cache 					\
+	--exclude /home/v/.wine						\
+    --exclude /home/v/.gem 						\
+    --exclude /home/v/.local 					\
+	--exclude /home/v/.local					\
+    --exclude /home/v/.mozilla	 				\
+    --exclude /home/v/.pki	 					\
+    --exclude /home/v/.sgminer					\
+    --exclude /home/v/.thumbnails 				\
+    --exclude /home/v/.vnc	 					\
+    --exclude /home/v/.wicd 					\
+    --exclude /home/v/.zcompcache				\
+	--exclude /home/v/.config/wine 				\
+	--exclude /home/v/.mail 					\
+	--exclude /home/v/Music						\
+	--exclude /home/v/Downloads/youtube 		\
+	--exclude /home/v/Downloads/metasploitable3 \
+	--exclude '/home/v/My Web Sites'			\
+	--exclude /home/v/Downloads/DwarfFortress	\
+	--exclude /home/v/Videos					\
+	--exclude /home/v/Mail						\
+	--exclude /home/v/Git
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly
 # and 6 monthly archives.
