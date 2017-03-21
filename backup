@@ -44,4 +44,4 @@ borg create --stats -C lzma	            		\
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly
 # and 6 monthly archives.
-borg prune -v $REPOSITORY --keep-within=1y --keep-hourly=336 --keep-daily=7 --keep-weekly=4 --keep-monthly=2 -s
+borg prune -v $REPOSITORY --keep-within=1y --keep-hourly=336 --keep-daily=7 --keep-weekly=4 --keep-monthly=1 -s
