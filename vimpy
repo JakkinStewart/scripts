@@ -2,11 +2,11 @@
 if [ -s $1 ] ; then
     vim $1
 else
+    source /opt/anaconda/bin/activate root
     echo "#! /usr/bin/env python" > $1
     echo "# Written by Joshua Jordi" >> $1
 	#echo "# vim: set ts=4"
     echo "" >> $1
     echo "" >> $1
     vim $1
-    cp $1 /home/v/ownCloud/Programs
 fi
